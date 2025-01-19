@@ -7,7 +7,7 @@ import { BorrowRecord } from '../borrowing-history/BorrowRecord';
   providedIn: 'root'
 })
 export class BorrowingHistoryService {
-  private baseUrl = 'http://localhost:8083/v1/services/borrow';
+  private baseUrl = 'http://localhost:8083/v1/services';
 
   constructor(private http: HttpClient) {}
 

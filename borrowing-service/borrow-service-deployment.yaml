@@ -5,7 +5,7 @@ metadata:
   labels:
     app: borrow-service
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: borrow-service
