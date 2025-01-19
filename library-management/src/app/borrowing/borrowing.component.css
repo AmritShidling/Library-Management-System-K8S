@@ -1,0 +1,25 @@
+.borrow-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.dropdown-field {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 16px;
+}
+/* success-snackbar class for green background */
+::ng-deep .success-snackbar {
+  background-color: green;
+  color: green;
+}
+
+/* error-snackbar class for red background */
+::ng-deep .error-snackbar {
+  background-color: red;
+  color: white;
+}

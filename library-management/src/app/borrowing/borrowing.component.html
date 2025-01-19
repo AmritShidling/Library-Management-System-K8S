@@ -1,0 +1,41 @@
+<div class="borrow-container">
+  <h2>Borrow a Book</h2>
+  <form [formGroup]="borrowForm" (ngSubmit)="onBorrow()">
+    <!-- User Selection -->
+    <mat-form-field appearance="fill" class="dropdown-field">
+      <mat-label>Select User</mat-label>
+      <mat-select formControlName="userId" [compareWith]="compareById">
+        <mat-option *ngFor="let user of users" [value]="user.id">
+          {{ user.name }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="borrowForm.get('userId')?.hasError('required')">
+        User is required
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Book Selection -->
+    <mat-form-field appearance="fill" class="dropdown-field">
+      <mat-label>Select Book</mat-label>
+      <mat-select formControlName="bookId" [compareWith]="compareById">
+        <mat-option *ngFor="let book of books" [value]="book.id">
+          {{ book.title }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="borrowForm.get('bookId')?.hasError('required')">
+        Book is required
+      </mat-error>
+    </mat-form-field>
+
+    
+    <!-- Error Message -->
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+
+    <!-- Borrow Button -->
+    <button mat-raised-button color="primary" [disabled]="borrowForm.invalid">
+      Borrow
+    </button>
+  </form>
+</div>

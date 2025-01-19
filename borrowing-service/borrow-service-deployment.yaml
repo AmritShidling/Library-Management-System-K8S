@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: borrow-service
+  labels:
+    app: borrow-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: borrow-service
+  template:
+    metadata:
+      labels:
+        app: borrow-service
+    spec:
+      containers:
+      - name: borrow-service
+        image: amritls/borrow-service-2.0.0
+        ports:
+        - containerPort: 8083
+      imagePullSecrets:
+        - name: my-registry-secret
